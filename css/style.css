@@ -1,0 +1,210 @@
+/* ============================================================
+   Reza Ramezanpour — personal site
+   Palette  : paper white / cool ink / slate / indigo accent
+   Type     : Newsreader (display serif) + Inter (body/UI)
+   ============================================================ */
+
+:root {
+  --paper:      #ffffff;
+  --paper-soft: #fafbfc;
+  --ink:        #1a1d24;
+  --slate:      #545c6b;
+  --slate-soft: #7b8392;
+  --hair:       #e6e8ee;
+  --accent:     #2f3a73;
+  --accent-2:   #4a57a8;
+  --accent-wash:#eef0f7;
+
+  --maxw: 880px;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+a:hover { color: var(--accent-2); border-bottom-color: var(--accent-2); }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+/* ---------------- Navigation ---------------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.86);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--hair);
+}
+.nav-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 16px 28px;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 18px;
+}
+.nav-name {
+  font-family: var(--serif);
+  font-size: 1.32rem; font-weight: 500; letter-spacing: .2px;
+  color: var(--ink); border: 0; white-space: nowrap;
+}
+.nav-name:hover { color: var(--ink); }
+.nav-links { display: flex; gap: 22px; flex-wrap: wrap; align-items: baseline; }
+.nav-links a {
+  color: var(--slate); border: 0;
+  font-size: .8rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a.active { color: var(--ink); }
+
+/* ---------------- Hero / header block ---------------- */
+.hero { display: flex; gap: 48px; align-items: flex-start; padding: 64px 0 8px; }
+.hero-text { flex: 1 1 auto; }
+.hero-aside { flex: 0 0 224px; text-align: center; }
+
+.eyebrow {
+  font-size: .76rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--accent); font-weight: 600; margin: 0 0 14px;
+}
+h1.name {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6vw, 3.5rem);
+  font-weight: 500; line-height: 1.04; letter-spacing: -.5px;
+  margin: 0 0 10px;
+}
+.role { font-size: 1.06rem; color: var(--slate); margin: 0 0 26px; }
+.role strong { color: var(--ink); font-weight: 600; }
+
+.portrait {
+  width: 200px; height: 200px; border-radius: 50%;
+  object-fit: cover; border: 1px solid var(--hair);
+  box-shadow: 0 6px 28px rgba(26,29,36,.10);
+}
+.contact-line { margin-top: 16px; font-size: .92rem; color: var(--slate); }
+.contact-line a { font-weight: 500; }
+
+/* social icons */
+.socials { display: flex; gap: 16px; justify-content: center; margin-top: 18px; }
+.socials a { color: var(--slate-soft); border: 0; line-height: 0; }
+.socials a:hover { color: var(--accent); transform: translateY(-1px); }
+.socials svg { width: 21px; height: 21px; display: block; }
+
+/* ---------------- Body prose ---------------- */
+.prose { padding: 8px 0 8px; }
+.prose p { margin: 0 0 18px; color: #2b303b; }
+.prose p:last-child { margin-bottom: 0; }
+
+/* ---------------- Graph divider (signature) ---------------- */
+.divider { margin: 46px 0; color: var(--hair); }
+.divider svg { width: 100%; height: 26px; display: block; }
+.divider .edge { stroke: var(--hair); stroke-width: 1.4; }
+.divider .node { fill: var(--paper); stroke: var(--accent); stroke-width: 1.6; }
+.divider .node-fill { fill: var(--accent); }
+
+/* ---------------- Section heading ---------------- */
+.section { padding: 6px 0 8px; }
+.section-head {
+  display: flex; align-items: baseline; gap: 14px; margin: 0 0 22px;
+}
+h2.section-title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 1.7rem; letter-spacing: -.2px; margin: 0; color: var(--ink);
+}
+.section-rule { flex: 1 1 auto; height: 1px; background: var(--hair); }
+
+/* ---------------- News list ---------------- */
+.news { list-style: none; margin: 0; padding: 0; }
+.news li {
+  display: grid; grid-template-columns: 132px 1fr; gap: 18px;
+  padding: 14px 0; border-bottom: 1px solid var(--hair);
+}
+.news li:last-child { border-bottom: 0; }
+.news .date {
+  font-size: .82rem; font-weight: 600; color: var(--slate-soft);
+  letter-spacing: .03em; padding-top: 2px;
+}
+.news .what { color: #2b303b; font-size: .98rem; }
+.news .what strong { color: var(--ink); font-weight: 600; }
+
+/* ---------------- Publications ---------------- */
+.pub-year {
+  font-family: var(--serif); font-size: 1.15rem; color: var(--slate-soft);
+  font-weight: 500; margin: 34px 0 14px; letter-spacing: .02em;
+}
+.pub {
+  display: grid; grid-template-columns: 1fr; gap: 6px;
+  padding: 20px 0; border-top: 1px solid var(--hair);
+}
+.pub:first-of-type { border-top: 0; }
+.pub-title { font-weight: 600; font-size: 1.06rem; color: var(--ink); line-height: 1.4; }
+.pub-authors { font-size: .95rem; color: var(--slate); }
+.pub-authors .me { color: var(--ink); font-weight: 600; }
+.pub-venue { font-size: .92rem; color: var(--slate); font-style: italic; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.tag {
+  font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-wash);
+  padding: 3px 9px; border-radius: 100px;
+}
+.pub-links { margin-top: 6px; font-size: .86rem; display: flex; gap: 16px; flex-wrap: wrap; }
+.pub-links a { font-weight: 600; letter-spacing: .02em; }
+.pub-notes { margin: 8px 0 0; padding: 0; list-style: none; }
+.pub-notes li {
+  font-size: .88rem; color: var(--slate); padding-left: 18px; position: relative; margin-top: 4px;
+}
+.pub-notes li::before {
+  content: "↳"; position: absolute; left: 0; color: var(--accent-2);
+}
+
+/* ---------------- Teaching / generic blocks ---------------- */
+.entry {
+  padding: 20px 0; border-top: 1px solid var(--hair);
+}
+.entry:first-of-type { border-top: 0; }
+.entry-top { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+.entry-title { font-weight: 600; font-size: 1.04rem; color: var(--ink); }
+.entry-when { font-size: .84rem; color: var(--slate-soft); font-weight: 600; letter-spacing: .03em; white-space: nowrap; }
+.entry-where { font-size: .92rem; color: var(--slate); margin-top: 2px; }
+.entry-desc { font-size: .95rem; color: #2b303b; margin-top: 8px; }
+
+.lead { font-size: 1.02rem; color: var(--slate); margin: 0 0 30px; max-width: 60ch; }
+
+/* ---------------- Footer ---------------- */
+.footer {
+  margin-top: 72px; border-top: 1px solid var(--hair);
+  padding: 26px 0 48px; color: var(--slate-soft); font-size: .82rem;
+}
+.footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer a { color: var(--slate); border: 0; }
+.footer a:hover { color: var(--accent); }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .hero { flex-direction: column-reverse; gap: 28px; padding-top: 40px; align-items: center; text-align: center; }
+  .hero-aside { flex-basis: auto; }
+  .eyebrow, .role { text-align: center; }
+  .nav-inner { flex-direction: column; align-items: center; gap: 12px; }
+  .nav-links { justify-content: center; gap: 16px; }
+  .news li { grid-template-columns: 1fr; gap: 4px; }
+  .news .date { padding-top: 0; }
+  .entry-top { gap: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
